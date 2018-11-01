@@ -1,0 +1,63 @@
+{
+ "name": "vuehelper",
+ "displayName": "VueHelper",
+ "description": "Code snippets for Vue,Vue-router and Vuex",
+ "version": "0.1.0",
+ "publisher": "oysun",
+ "icon": "src/images/logo.jpg",
+ "engines": {
+  "vscode": "^1.8.0"
+ },
+ "keywords": [
+  "javascript",
+  "snippet",
+  "vue",
+  "vue-router",
+  "vuex"
+ ],
+ "categories": [
+  "Snippets",
+  "Languages"
+ ],
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/OYsun/vscode-VueHelper"
+ },
+ "bugs": {
+  "url": "https://github.com/OYsun/vscode-VueHelper/issues",
+  "email": "web-oysun@qq.com"
+ },
+ "license": "MIT",
+ "contributes": {
+  "snippets": [
+   {
+    "language": "javascript",
+    "path": "./src/snippets/javascript.json"
+   },
+   {
+    "language": "typescript",
+    "path": "./src/snippets/javascript.json"
+   },
+   {
+    "language": "html",
+    "path": "./src/snippets/html.json"
+   }
+  ]
+ },
+ "scripts": {
+  "postinstall": "node ./node_modules/vscode/bin/install"
+ },
+ "devDependencies": {
+  "typescript": "^2.0.3",
+  "vscode": "^1.0.0",
+  "mocha": "^2.3.3",
+  "eslint": "^3.6.0",
+  "@types/node": "^6.0.40",
+  "@types/mocha": "^2.2.32"
+ },
+ "__metadata": {
+  "id": "b6f57432-c4a8-4f6f-868c-ec08f797e584",
+  "publisherId": "oysun.vuehelper",
+  "publisherDisplayName": "oysun"
+ }
+}

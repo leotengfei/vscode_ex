@@ -1,0 +1,51 @@
+{
+ "name": "theme-verdandi",
+ "version": "1.9.0",
+ "publisher": "be5invis",
+ "engines": {
+  "vscode": "^1.26.0"
+ },
+ "displayName": "Verdandi Theme",
+ "description": "Verdandi themes for VS Code.",
+ "categories": [
+  "Themes"
+ ],
+ "repository": {
+  "git": "https://github.com/be5invis/vsc-theme-verdandi"
+ },
+ "license": "MIT",
+ "icon": "images/icon.png",
+ "contributes": {
+  "themes": [
+   {
+    "label": "Verdandi",
+    "uiTheme": "vs",
+    "path": "./themes/verdandi.json"
+   },
+   {
+    "label": "Verdandi Alter",
+    "uiTheme": "vs-dark",
+    "path": "./themes/verdandi-alter.json"
+   }
+  ],
+  "iconThemes": [
+   {
+    "id": "verdandi",
+    "label": "Verdandi",
+    "path": "./icons.json"
+   }
+  ]
+ },
+ "devDependencies": {
+  "onecolor": "^3.0.4"
+ },
+ "dependencies": {},
+ "scripts": {
+  "prepack": "node generate"
+ },
+ "__metadata": {
+  "id": "d2149167-a7c8-4dea-ad4e-8e7a7fc63f35",
+  "publisherId": "be5invis.theme-verdandi",
+  "publisherDisplayName": "be5invis"
+ }
+}

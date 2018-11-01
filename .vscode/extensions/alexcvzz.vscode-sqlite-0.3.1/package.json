@@ -1,0 +1,265 @@
+{
+ "name": "vscode-sqlite",
+ "icon": "resources/icon/icon_128x128.png",
+ "displayName": "SQLite",
+ "description": "Explore and query SQLite databases.",
+ "version": "0.3.1",
+ "publisher": "alexcvzz",
+ "repository": {
+  "url": "https://github.com/AlexCovizzi/vscode-sqlite",
+  "type": "git"
+ },
+ "engines": {
+  "vscode": "^1.23.0"
+ },
+ "categories": [
+  "Other"
+ ],
+ "activationEvents": [
+  "onLanguage:sql",
+  "onCommand:sqlite.explorer.add",
+  "onCommand:sqlite.explorer.remove",
+  "onCommand:sqlite.newQuery",
+  "onCommand:sqlite.quickQuery",
+  "onCommand:sqlite.useDatabase",
+  "onCommand:sqlite.runDocumentQuery"
+ ],
+ "main": "./out/extension",
+ "contributes": {
+  "commands": [
+   {
+    "command": "sqlite.explorer.add",
+    "title": "Open Database in Explorer",
+    "category": "SQLite"
+   },
+   {
+    "command": "sqlite.explorer.remove",
+    "title": "Close Explorer Database",
+    "category": "SQLite"
+   },
+   {
+    "command": "sqlite.useDatabase",
+    "title": "Use Database",
+    "category": "SQLite"
+   },
+   {
+    "command": "sqlite.newQuery",
+    "title": "New Query",
+    "category": "SQLite",
+    "icon": {
+     "light": "resources/light/newquery.svg",
+     "dark": "resources/dark/newquery.svg"
+    }
+   },
+   {
+    "command": "sqlite.quickQuery",
+    "title": "Quick Query",
+    "category": "SQLite"
+   },
+   {
+    "command": "sqlite.runDocumentQuery",
+    "title": "Run Query",
+    "category": "SQLite"
+   },
+   {
+    "command": "sqlite.runTableQuery",
+    "title": "Show Table",
+    "category": "SQLite"
+   },
+   {
+    "command": "sqlite.runSqliteMasterQuery",
+    "title": "Show sqlite_master",
+    "category": "SQLite"
+   },
+   {
+    "command": "sqlite.explorer.refresh",
+    "title": "Refresh",
+    "category": "SQLite",
+    "icon": {
+     "light": "resources/light/refresh.svg",
+     "dark": "resources/dark/refresh.svg"
+    }
+   }
+  ],
+  "keybindings": [
+   {
+    "command": "sqlite.runDocumentQuery",
+    "key": "ctrl+shift+q",
+    "mac": "cmd+shift+q",
+    "when": "editorLangId == sql"
+   }
+  ],
+  "views": {
+   "explorer": [
+    {
+     "id": "sqlite.explorer",
+     "name": "SQLite Explorer",
+     "when": "sqlite.explorer.show"
+    }
+   ]
+  },
+  "menus": {
+   "commandPalette": [
+    {
+     "command": "sqlite.explorer.add",
+     "group": "sqlite"
+    },
+    {
+     "command": "sqlite.explorer.remove",
+     "group": "sqlite"
+    },
+    {
+     "command": "sqlite.newQuery",
+     "group": "sqlite"
+    },
+    {
+     "command": "sqlite.quickQuery",
+     "group": "sqlite"
+    },
+    {
+     "command": "sqlite.runDocumentQuery",
+     "when": "editorLangId == sql",
+     "group": "sqlite"
+    },
+    {
+     "command": "sqlite.useDatabase",
+     "when": "editorLangId == sql",
+     "group": "sqlite"
+    },
+    {
+     "command": "sqlite.runSqliteMasterQuery",
+     "when": "false"
+    },
+    {
+     "command": "sqlite.runTableQuery",
+     "when": "false"
+    },
+    {
+     "command": "sqlite.explorer.refresh",
+     "when": "false"
+    }
+   ],
+   "explorer/context": [
+    {
+     "when": "resourceLangId == sqlite",
+     "command": "sqlite.explorer.add",
+     "group": "navigation"
+    }
+   ],
+   "editor/context": [
+    {
+     "when": "editorTextFocus && editorLangId == sql",
+     "command": "sqlite.runDocumentQuery",
+     "group": "sqlite@2"
+    },
+    {
+     "when": "editorTextFocus && editorLangId == sql",
+     "command": "sqlite.useDatabase",
+     "group": "sqlite@1"
+    }
+   ],
+   "view/title": [
+    {
+     "command": "sqlite.newQuery",
+     "when": "view == sqlite.explorer",
+     "group": "navigation@1"
+    },
+    {
+     "command": "sqlite.explorer.refresh",
+     "when": "view == sqlite.explorer",
+     "group": "navigation@2"
+    }
+   ],
+   "view/item/context": [
+    {
+     "command": "sqlite.newQuery",
+     "when": "view == sqlite.explorer && viewItem == sqlite.databaseItem",
+     "group": "sqlite@1"
+    },
+    {
+     "command": "sqlite.runSqliteMasterQuery",
+     "when": "view == sqlite.explorer && viewItem == sqlite.databaseItem",
+     "group": "sqlite@2"
+    },
+    {
+     "command": "sqlite.explorer.remove",
+     "when": "view == sqlite.explorer && viewItem == sqlite.databaseItem",
+     "group": "sqlite@3"
+    },
+    {
+     "command": "sqlite.runTableQuery",
+     "when": "view == sqlite.explorer && viewItem == sqlite.tableItem"
+    }
+   ]
+  },
+  "languages": [
+   {
+    "id": "sqlite",
+    "extensions": [
+     ".db",
+     ".db3",
+     ".sqlite",
+     ".sqlite3",
+     ".sdb",
+     ".s3db"
+    ]
+   }
+  ],
+  "configuration": {
+   "type": "object",
+   "title": "SQLite Configuration",
+   "properties": {
+    "sqlite.sqlite3": {
+     "type": "string",
+     "default": "sqlite3",
+     "description": "sqlite3 command or binaries path."
+    },
+    "sqlite.logLevel": {
+     "type": "string",
+     "enum": [
+      "DEBUG",
+      "INFO",
+      "WARN",
+      "ERROR"
+     ],
+     "default": "INFO",
+     "description": "Logging level in the output channel."
+    },
+    "sqlite.recordsPerPage": {
+     "type": "number",
+     "default": 50,
+     "minimum": -1,
+     "description": "Number of records to show per page. (-1 to show all records)"
+    }
+   }
+  }
+ },
+ "scripts": {
+  "vscode:prepublish": "npm run compile && npm run build-html",
+  "compile": "tsc -p ./",
+  "install-html": "cd ./src/resultview/htmlcontent && npm install",
+  "build-html": "cd ./src/resultview/htmlcontent && npm run build",
+  "watch": "tsc -watch -p ./",
+  "postinstall": "node ./node_modules/vscode/bin/install",
+  "test": "jest --config jest.json"
+ },
+ "devDependencies": {
+  "@types/jest": "^23.3.1",
+  "@types/node": "^7.0.43",
+  "jest": "^23.5.0",
+  "ts-jest": "^23.1.3",
+  "tslint": "^5.8.0",
+  "typescript": "^2.6.1",
+  "vscode": "^1.1.6"
+ },
+ "dependencies": {
+  "@types/csv-stringify": "^1.4.2",
+  "command-exists": "^1.2.6",
+  "csv-stringify": "^3.1.1"
+ },
+ "__metadata": {
+  "id": "eaee103c-e866-4b73-87f8-3749cab64da2",
+  "publisherId": "alexcvzz.vscode-sqlite",
+  "publisherDisplayName": "alexcvzz"
+ }
+}

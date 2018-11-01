@@ -1,0 +1,40 @@
+{
+ "name": "mapfile",
+ "displayName": "Mapfile Syntax",
+ "description": "Colors for UMN Mapserver configuration files",
+ "version": "0.0.1",
+ "publisher": "chicoff",
+ "engines": {
+  "vscode": "^1.15.0"
+ },
+ "categories": [
+  "Languages"
+ ],
+ "contributes": {
+  "languages": [
+   {
+    "id": "mapfile",
+    "aliases": [
+     "MapServer",
+     "mapfile"
+    ],
+    "extensions": [
+     ".map"
+    ],
+    "configuration": "./language-configuration.json"
+   }
+  ],
+  "grammars": [
+   {
+    "language": "mapfile",
+    "scopeName": "source.mapfile",
+    "path": "./syntaxes/MapServer.tmLanguage"
+   }
+  ]
+ },
+ "__metadata": {
+  "id": "310764b6-538a-41a9-880c-76afee214dd0",
+  "publisherId": "chicoff.mapfile",
+  "publisherDisplayName": "chicoff"
+ }
+}

@@ -1,0 +1,8 @@
+{
+	"plantuml.exportCurrent.title": "Export Current Diagram",
+	"plantuml.exportDocument.title": "Export Current File Diagrams",
+	"plantuml.exportWorkspace.title": "Export Workspace Diagrams",
+	"plantuml.preview.title": "Preview Current Diagram",
+	"plantuml.URLCurrent.title": "Generate URL for Current Diagram",
+	"plantuml.URLDocument.title": "Generate URLs for Current File Diagrams"
+}

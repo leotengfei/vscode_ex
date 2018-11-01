@@ -1,0 +1,82 @@
+{
+ "name": "node-modules-resolve",
+ "displayName": "Node modules resolve",
+ "description": "Provides definitions for commonjs requires in your code for quick navigation.",
+ "version": "1.0.2",
+ "publisher": "naumovs",
+ "engines": {
+  "vscode": "^0.11.x"
+ },
+ "categories": [
+  "Other"
+ ],
+ "activationEvents": [
+  "onLanguage:javascript",
+  "onLanguage:javascriptreact",
+  "onLanguage:typescript",
+  "onLanguage:typescriptreact"
+ ],
+ "scripts": {
+  "vscode:prepublish": "node ./node_modules/webpack/bin/webpack.js",
+  "compile": "node ./node_modules/webpack/bin/webpack.js -w"
+ },
+ "license": "MIT",
+ "bugs": {
+  "url": "https://github.com/naumovs/vscode-ext-node-module-resolve/issues"
+ },
+ "homepage": "https://github.com/naumovs/vscode-ext-node-module-resolve",
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/naumovs/vscode-ext-node-module-resolve.git"
+ },
+ "main": "./dist/extension",
+ "icon": "images/preview.png",
+ "contributes": {
+  "configuration": {
+   "type": "object",
+   "title": "Node modules resolve",
+   "properties": {
+    "javascript.commonjs.resolve.languages": {
+     "type": "array",
+     "default": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+     ],
+     "description": "Array of languages where the script should be enabled."
+    },
+    "javascript.commonjs.resolve.extensions": {
+     "type": "array",
+     "default": [
+      ".js"
+     ],
+     "description": "Array of file extensions to search in order."
+    },
+    "javascript.commonjs.resolve.package": {
+     "type": "string",
+     "default": "package.json",
+     "description": "package.json Data applicable to the module being loaded"
+    },
+    "javascript.commonjs.resolve.moduleDirectory": {
+     "type": "array",
+     "default": [
+      "node_modules"
+     ],
+     "description": "Directories in which to recursively look for modules."
+    }
+   }
+  }
+ },
+ "devDependencies": {
+  "json-loader": "0.5.4",
+  "resolve": "1.1.7",
+  "vscode": "0.11.18",
+  "webpack": "1.13.2"
+ },
+ "__metadata": {
+  "id": "33725128-6e25-4fd3-b913-65593c2f0f2f",
+  "publisherId": "naumovs.node-modules-resolve",
+  "publisherDisplayName": "naumovs"
+ }
+}

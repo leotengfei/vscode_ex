@@ -1,0 +1,150 @@
+{
+ "name": "vscode-faker",
+ "displayName": "vscode-faker",
+ "description": "Generate fake data for name, address, lorem ipsum, commerce and much more",
+ "version": "1.3.0",
+ "publisher": "deerawan",
+ "engines": {
+  "vscode": "^0.10.1"
+ },
+ "icon": "images/faker.png",
+ "bugs": {
+  "url": "https://github.com/deerawan/vscode-faker/issues",
+  "email": "deerawan@gmail.com"
+ },
+ "homepage": "https://github.com/deerawan/vscode-faker",
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/deerawan/vscode-faker"
+ },
+ "categories": [
+  "Other"
+ ],
+ "activationEvents": [
+  "onCommand:faker.address",
+  "onCommand:faker.commerce",
+  "onCommand:faker.company",
+  "onCommand:faker.database",
+  "onCommand:faker.date",
+  "onCommand:faker.finance",
+  "onCommand:faker.hacker",
+  "onCommand:faker.image",
+  "onCommand:faker.internet",
+  "onCommand:faker.lorem",
+  "onCommand:faker.name",
+  "onCommand:faker.phone",
+  "onCommand:faker.random",
+  "onCommand:faker.system"
+ ],
+ "main": "./out/src/extension",
+ "contributes": {
+  "commands": [
+   {
+    "command": "faker.address",
+    "title": "Faker: Address"
+   },
+   {
+    "command": "faker.commerce",
+    "title": "Faker: Commerce"
+   },
+   {
+    "command": "faker.company",
+    "title": "Faker: Company"
+   },
+   {
+    "command": "faker.database",
+    "title": "Faker: Database"
+   },
+   {
+    "command": "faker.date",
+    "title": "Faker: Date"
+   },
+   {
+    "command": "faker.finance",
+    "title": "Faker: Finance"
+   },
+   {
+    "command": "faker.hacker",
+    "title": "Faker: Hacker"
+   },
+   {
+    "command": "faker.image",
+    "title": "Faker: Image"
+   },
+   {
+    "command": "faker.internet",
+    "title": "Faker: Internet"
+   },
+   {
+    "command": "faker.lorem",
+    "title": "Faker: Lorem"
+   },
+   {
+    "command": "faker.name",
+    "title": "Faker: Name"
+   },
+   {
+    "command": "faker.phone",
+    "title": "Faker: Phone"
+   },
+   {
+    "command": "faker.random",
+    "title": "Faker: Random"
+   },
+   {
+    "command": "faker.system",
+    "title": "Faker: System"
+   }
+  ],
+  "configuration": {
+   "type": "object",
+   "title": "Faker Configuration",
+   "properties": {
+    "faker.locale": {
+     "type": "string",
+     "default": "en",
+     "description": "Set locale for Faker"
+    }
+   }
+  }
+ },
+ "scripts": {
+  "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+  "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+  "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec --ui tdd ./out/test/**/*.test.js",
+  "precommit": "lint-staged",
+  "format": "prettier --write \"{src,test}/**/*.ts\"",
+  "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts' --fix"
+ },
+ "devDependencies": {
+  "chai": "^3.5.0",
+  "husky": "^0.14.3",
+  "coveralls": "^3.0.0",
+  "istanbul": "^0.4.5",
+  "lint-staged": "^4.3.0",
+  "mocha": "^3.2.0",
+  "prettier": "^1.7.4",
+  "tslint": "^5.8.0",
+  "tslint-config-prettier": "^1.6.0",
+  "typescript": "^2.5.3",
+  "vscode": "0.10.x"
+ },
+ "dependencies": {
+  "faker": "~4.1.0"
+ },
+ "lint-staged": {
+  "*.{ts,json}": [
+   "prettier --write",
+   "git add"
+  ],
+  "*.ts": [
+   "tslint --fix",
+   "tslint"
+  ]
+ },
+ "__metadata": {
+  "id": "0808d236-6faf-4f68-9f17-28f51a572ee4",
+  "publisherId": "deerawan.vscode-faker",
+  "publisherDisplayName": "deerawan"
+ }
+}

@@ -1,0 +1,124 @@
+{
+ "name": "vscode-3dviewer",
+ "displayName": "3D Viewer for VSCode",
+ "description": "Preview 3D models in VSCode",
+ "version": "0.1.0",
+ "publisher": "slevesque",
+ "license": "LICENSE.md",
+ "icon": "icon.png",
+ "bugs": {
+  "url": "https://github.com/stef-levesque/vscode-3dviewer/issues"
+ },
+ "homepage": "https://github.com/stef-levesque/vscode-3dviewer",
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/stef-levesque/vscode-3dviewer.git"
+ },
+ "galleryBanner": {
+  "color": "#0075c3",
+  "theme": "dark"
+ },
+ "engines": {
+  "vscode": "^1.18.0"
+ },
+ "keywords": [
+  "vscode",
+  "3d",
+  "viewer",
+  "webgl"
+ ],
+ "categories": [
+  "Other"
+ ],
+ "activationEvents": [
+  "onCommand:3dviewer.openInViewer",
+  "onCommand:3dviewer.openUrlInViewer",
+  "onCommand:3dviewer.openInEditor",
+  "onCommand:3dviewer.openUrlInEditor",
+  "onCommand:3dviewer.openEditor"
+ ],
+ "main": "./out/extension",
+ "contributes": {
+  "languages": [
+   {
+    "id": "3dformat",
+    "extensions": [
+     ".3ds",
+     ".dae",
+     ".fbx",
+     ".obj",
+     ".stl"
+    ]
+   }
+  ],
+  "commands": [
+   {
+    "command": "3dviewer.openInViewer",
+    "title": "Open in Viewer",
+    "category": "3DViewer"
+   },
+   {
+    "command": "3dviewer.openUrlInViewer",
+    "title": "Open URL in Viewer",
+    "category": "3DViewer"
+   },
+   {
+    "command": "3dviewer.openInEditor",
+    "title": "Open in Editor",
+    "category": "3DViewer"
+   },
+   {
+    "command": "3dviewer.openUrlInEditor",
+    "title": "Open URL in Editor",
+    "category": "3DViewer"
+   },
+   {
+    "command": "3dviewer.openEditor",
+    "title": "Open THREE.js Editor",
+    "category": "3DViewer"
+   }
+  ],
+  "menus": {
+   "commandPalette": [
+    {
+     "command": "3dviewer.openInViewer",
+     "when": "false"
+    },
+    {
+     "command": "3dviewer.openInEditor",
+     "when": "false"
+    }
+   ],
+   "explorer/context": [
+    {
+     "command": "3dviewer.openInViewer",
+     "when": "resourceLangId == 3dformat"
+    },
+    {
+     "command": "3dviewer.openInEditor",
+     "when": "resourceLangId == 3dformat"
+    }
+   ]
+  }
+ },
+ "scripts": {
+  "vscode:prepublish": "npm run compile",
+  "compile": "tsc -p ./",
+  "watch": "tsc -watch -p ./",
+  "postinstall": "node ./node_modules/vscode/bin/install"
+ },
+ "devDependencies": {
+  "@types/dat-gui": "^0.6.3",
+  "@types/mocha": "^2.2.42",
+  "@types/node": "^7.0.43",
+  "@types/three": "^0.84.30",
+  "@types/webgl-ext": "0.0.29",
+  "typescript": "^2.6.1",
+  "vscode": "^1.1.6"
+ },
+ "__metadata": {
+  "id": "22074919-af0e-4e0c-928d-7149d7a68ede",
+  "publisherId": "slevesque.vscode-3dviewer",
+  "publisherDisplayName": "slevesque"
+ }
+}
